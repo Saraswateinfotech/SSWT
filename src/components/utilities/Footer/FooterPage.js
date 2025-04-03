@@ -4,6 +4,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A0A0A] text-gray-300 pt-10">
       <div className="lg:max-w-screen-2xl mx-auto px-4 sm:px-16">
+        <div>
+          <img src="sswt-logo.png" className="h-16 mb-10" />
+        </div>
         {/* Flex container */}
         <div className="flex flex-wrap max-w-2xl lg:max-w-full m-auto justify-between sm:gap-y-8">
           {/* About Company - First on all screens, full width on mobile, half on min-[450px], 2/6 on lg+ */}

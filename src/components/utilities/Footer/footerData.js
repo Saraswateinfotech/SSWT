@@ -25,14 +25,14 @@ export const footerData = {
     ],
   },
   address: {
-    heading: "Address",
+    heading: "Contact Us",
     content: [
       {
-        text: "+91 500088 55",
+        text: "+91 9950488637",
         icon: <FaPhoneAlt className="inline-block mr-2" />,
       },
       {
-        text: "webteck@gmail.com",
+        text: "contact@saraswate.com",
         icon: <FaEnvelope className="inline-block mr-2" />,
       },
       {
@@ -44,19 +44,19 @@ export const footerData = {
   company: {
     heading: "Company",
     links: [
-      { text: "Terms and Conditions", link: "#" },
-      { text: "Privacy Policy", link: "#" },
+      { text: "Terms and Conditions", link: "/terms-and-conditions" },
+      { text: "Privacy Policy", link: "/privacy-policy" },
+      { text: "Contact", link: "#contact-us" },
     ],
   },
   pages: {
     heading: "Pages",
     links: [
-      { text: "Home", link: "#" },
-      { text: "About", link: "#" },
-      { text: "Services", link: "#" },
-      { text: "Gallery", link: "#" },
-      { text: "Blog", link: "#" },
-      { text: "Contact", link: "#" },
+      { text: "Home", link: "#home" },
+      { text: "About", link: "#home-about" },
+      { text: "Services", link: "#home-services" },
+      { text: "Portfolio", link: "#home-portfolio" },
+      { text: "Testimonials", link: "#home-testimonials" },
     ],
   },
 };

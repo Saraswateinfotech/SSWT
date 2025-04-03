@@ -107,6 +107,25 @@ export const services = [
     }
   },
   {
+    title: "CMS Websites (Codeless)",
+    description: {
+      paragraphs: [
+        "Our website uses a CMS, ensuring our content is always fresh and easy to navigate. This system lets us update information quickly, delivering a secure, smooth browsing experience whether you're on a desktop or mobile device."
+      ],
+      bullets: [
+        "Static & Dynamic Content Management",
+        "Customised Content Solutions",
+        "Ecommmerce",
+        "Multi-Channel Content Delivery",
+      ],
+      techs: [
+        "https://logos-world.net/wp-content/uploads/2020/10/WordPress-Logo.png",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhs3m74DjDOvXE7HIVJWITuFXQorky1j2m5A&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuBtsAqsTmYEQlHcXdd3hMgDqjwi7wJZwxjg&s",
+      ]
+    }
+  },
+  {
     title: "Digital Marketing",
     description: {
       paragraphs: [
