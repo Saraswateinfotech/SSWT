@@ -1,9 +1,7 @@
-import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/utilities/Header/Header";
 import FooterPage from "@/components/utilities/Footer/FooterPage";
 import { Outfit } from "next/font/google";
-import SocialMediaSticky from "@/components/utilities/SocialMediaSticky";
 
 const companyText = Outfit({
   subsets: ["latin"],
@@ -19,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${companyText.className} antialiased`}
+        className={`${companyText.className} antialiased bg-white`}
       >
         <Header />
         {children}

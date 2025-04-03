@@ -1,74 +1,106 @@
-"use client";
-import React from "react";
+// pages/success-stories.js
 
-// Helper function to convert hex to rgba
-const hexToRgba = (hex, opacity = 0.2) => {
-  const bigint = parseInt(hex.replace("#", ""), 16);
-  const r = (bigint >> 16) & 255;
-  const g = (bigint >> 8) & 255;
-  const b = bigint & 255;
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-};
-
-const featureData = [
-  {
-    title: "ISKCON Puja",
-    description:
-      "The ISKCON Puja website offers a smooth booking experience with a combined login/signup popup. Users can book pujas, track status, receive YouTube recordings, and give feedback. A dedicated dashboard handles bookings, users, revenue, slots, and admin controls efficiently.",
-    color: "#a045a6",
-  },
-  {
-    title: "Resumes Entry",
-    description:
-      "The Resumes Entry website includes separate dashboards for admins and freelancers. Admins can upload, manage, and export resume data, while freelancers work on assigned resumes with save and submit options. It also supports KYC verification and secure detail collection.",
-    color: "#2151d9",
-  },
-  {
-    title: "ISKCON Jaipur",
-    description:
-      "This website has been thoughtfully designed to showcase the entire campus and its projects. Developed by our team, it highlights temple events, community initiatives, and spiritual activities with a clean, user-friendly interface that brings the essence of ISKCON Jaipur online.",
-    color: "#d17a29",
-  },
-];
-
-// InfoCard with gradient background and scale on hover
-const InfoCard = ({ title, description, color }) => {
-  const backgroundGradient = `linear-gradient(to top right, ${hexToRgba(
-    color,
-    0.12
-  )}, transparent)`;
+export default function SuccessStories() {
+  const imageUrl =
+    "https://www.gkmit.co/wp-content/uploads/2024/04/GKMIT_Homepage_Projects_Mockup_IndiGG.webp";
+  const title = "ISKCON Puja";
+  const description =
+    "Experience seamless ISKCON Puja booking with unified login/signup. Easily book pujas, track status, and access recordings via an intuitive dashboard.";
 
   return (
-    <div
-      className="shadow-md p-4 rounded-md border-t-[2px] bg-white transition-transform duration-300 transform hover:scale-105"
-      style={{
-        borderTopColor: color,
-        background: backgroundGradient,
-      }}
-    >
-      <h3 className="text-2xl font-medium mb-2 text-[#184A6B]">{title}</h3>
-      <p className="text-base text-justify text-gray-600">{description}</p>
-    </div>
-  );
-};
+    <section className="bg-[#002ea8] text-white py-4 lg:py-16">
+      <div className="max-w-screen-2xl mx-auto px-4 lg:px-16">
+        {/* Title Section */}
+        <div className="mb-10 ml-2">
+          <p className="uppercase mb-2 text-md sm:text-lg font-semibold">Success Stories</p>
+          <h2 className="sm:text-[56px] text-4xl font-semibold mt-2 mb-2">Built By Saraswate</h2>
+          <div className="mb-14 sm:mb-20 h-1 sm:h-1.5 w-20 bg-white rounded-full"></div>
+        </div>
 
-export default function FeatureSection() {
-  return (
-    <div id="home-portfolio" className="px-4 lg:px-16 py-16 max-w-screen-2xl mx-auto">
-      <h2 className="text-4xl md:text-5xl text-center text-[#043F9B] font-bold mb-12">
-        <span className="text-[#184A6B]">Our</span> Portfolio
-      </h2>
+        {/* Layout for screens lg and above */}
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-7 grid-rows-2 gap-6">
+            {/* Side Long Box (remains column layout) */}
+            <div className="col-span-2 row-span-2 bg-white text-black rounded-xl p-10">
+              <img
+                src={imageUrl}
+                alt={title}
+                className="object-contain mb-4 h-48 w-auto"
+              />
+              <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+              <p className="text-base">{description}</p>
+            </div>
+            {/* Other Boxes: use row layout */}
+            <div className="col-span-5 bg-white text-black rounded-xl p-10 flex items-center">
+              <img
+                src={imageUrl}
+                alt="Resumes Entry"
+                className="object-contain h-48 w-auto mr-8"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">Resumes Entry</h3>
+                <p className="text-base">Resumes Entry provides separate dashboards: admins manage resumes, and freelancers work on assignments. It offers KYC and secure data collection.</p>
+              </div>
+            </div>
+            <div className="col-span-5 bg-white text-black rounded-xl p-10 flex items-center">
+              <img
+                src={imageUrl}
+                alt={title}
+                className="object-contain h-48 w-auto mr-8"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">ISKCON Jaipur</h3>
+                <p className="text-base">Developed by our team, this website showcases the campus and projects, featuring temple events, community initiatives, and spiritual activities.</p>
+              </div>
+            </div>
+          </div>
+          {/* Bottom Grid: Two Boxes (row layout) */}
+          <div className="grid grid-cols-2 gap-6 mt-8">
+            <div className="bg-white text-black rounded-xl p-6 flex items-center">
+              <img
+                src={imageUrl}
+                alt={title}
+                className="object-contain h-36 w-auto mr-4"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">The Lip Bar</h3>
+                <p className="text-base">Developed by our team, this ecommerce landing page combines product showcase and secure checkout with an integrated payment gateway.</p>
+              </div>
+            </div>
+            <div className="bg-white text-black rounded-xl p-6 py-12 flex items-center">
+              <img
+                src={imageUrl}
+                alt={title}
+                className="object-contain h-36 w-auto mr-4"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold mb-2">Boss Audio System</h3>
+                <p className="text-base">Our ecommerce landing page showcases Boss Audio’s innovative products with a secure, streamlined shopping experience that drives conversions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {featureData.map((item, index) => (
-          <InfoCard
-            key={index}
-            title={item.title}
-            description={item.description}
-            color={item.color}
-          />
-        ))}
+        {/* Layout for screens below lg */}
+        <div className="block lg:hidden space-y-6 px-4 md:px-10">
+          {[1, 2, 3, 4, 5].map((item) => (
+            <div
+              key={item}
+              className="bg-white text-black rounded-xl sm:p-10 p-6 sm:flex justify-center items-center"
+            >
+              <img
+                src={imageUrl}
+                alt={title}
+                className="object-contain md:h-48 h-28 w-auto mr-8"
+              />
+              <div>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-2">{title}</h3>
+                <p className="text-sm sm:text-base sm:max-w-lg">{description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

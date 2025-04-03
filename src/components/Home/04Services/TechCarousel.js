@@ -4,8 +4,6 @@ import React, { useRef } from "react";
 export default function TechCarousel({ logos }) {
   const carouselRef = useRef(null);
 
-  // Calculate the width of one carousel item including the gap.
-  // Here we assume a gap equivalent to Tailwind's space-x-4 (i.e. 16px).
   const getItemWidth = () => {
     const carousel = carouselRef.current;
     const firstItem = carousel ? carousel.querySelector(".carousel-item") : null;
@@ -35,7 +33,7 @@ export default function TechCarousel({ logos }) {
       <div ref={carouselRef} className="overflow-hidden whitespace-nowrap scrollbar-hide">
         <div className="flex space-x-4">
           {logos.map((logo, idx) => (
-            <div key={idx} className="carousel-item flex-shrink-0">
+            <div key={idx} className="carousel-item flex-shrink-0 border-[1px] border-gray-100">
               <img src={logo} alt={`Logo ${idx}`} className="h-12 w-auto" />
             </div>
           ))}

@@ -9,7 +9,7 @@ export default function ServiceComponent({ service, variant, isActive }) {
     return (
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <h3 className="text-[20px] font-medium">{service.title}</h3>
+          <h3 className={`text-[20px] ${isActive ? 'text-white' : 'text-black'} font-medium`}>{service.title}</h3>
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
