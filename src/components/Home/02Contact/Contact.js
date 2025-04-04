@@ -17,11 +17,14 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://saraswate-backend-black.vercel.app/api/contactDetails",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
@@ -34,7 +37,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="home-contact" className="bg-gradient-to-br from-gray-100 to-gray-200 py-10 md:py-16">
+    <section
+      id="home-contact"
+      className="bg-gradient-to-br from-gray-100 to-gray-200 py-10 md:py-16"
+    >
       <div className="max-w-screen-2xl mx-auto px-4 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Column: Heading and Info Boxes */}
@@ -92,6 +98,15 @@ export default function Contact() {
                   required
                   className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b]"
                 />
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b]"
+              />
+              </div>
                 <input
                   type="email"
                   name="email"
@@ -101,21 +116,13 @@ export default function Contact() {
                   required
                   className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b]"
                 />
-              </div>
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b]"
-              />
+              {/* Phone field stays below Name and Email */}
               <textarea
                 name="message"
                 placeholder="Write Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b] min-h-[120px]"
+                className="w-full p-3 border text-black border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#043f9b] min-h-[120px]"
               />
               <button
                 type="submit"
