@@ -7,6 +7,15 @@
   --foreground: #171717;
 }
 
+:root {
+  scroll-padding-top: 3.5rem;
+}
+
+/* Or target all elements that might be scrolled to */
+/* [id] {
+  scroll-margin-top: 6rem;
+} */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

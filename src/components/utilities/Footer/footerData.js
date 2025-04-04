@@ -46,7 +46,7 @@ export const footerData = {
     links: [
       { text: "Terms and Conditions", link: "/terms-and-conditions" },
       { text: "Privacy Policy", link: "/privacy-policy" },
-      { text: "Contact", link: "#contact-us" },
+      { text: "Contact", link: "#home-contact" },
     ],
   },
   pages: {

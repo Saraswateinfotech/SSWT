@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
 
 const testimonials = [
   {
@@ -29,22 +31,58 @@ const testimonials = [
 
 export default function Testimonial() {
   const [current, setCurrent] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const sliderRef = useRef(null);
   const total = testimonials.length;
 
-  // Auto slide every 5 seconds
+  // Auto slide every 5 seconds (pauses when user interacts)
   useEffect(() => {
+    if (isInteracting) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
     }, 5000);
     return () => clearInterval(interval);
-  }, [total]);
+  }, [total, isInteracting]);
 
   const nextSlide = () => {
+    setIsInteracting(true);
     setCurrent(current === total - 1 ? 0 : current + 1);
+    setTimeout(() => setIsInteracting(false), 1000);
   };
 
   const prevSlide = () => {
+    setIsInteracting(true);
     setCurrent(current === 0 ? total - 1 : current - 1);
+    setTimeout(() => setIsInteracting(false), 1000);
+  };
+
+  // Touch event handlers for swipe detection
+  const handleTouchStart = (e) => {
+    setIsInteracting(true);
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) {
+      setIsInteracting(false);
+      return;
+    }
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50; // Minimum swipe distance
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) nextSlide();
+    if (isRightSwipe) prevSlide();
+    
+    setTimeout(() => setIsInteracting(false), 1000);
   };
 
   return (
@@ -58,8 +96,14 @@ export default function Testimonial() {
             Hear From <span className="text-[#043f9b]">Our Clients</span>:
           </h1>
 
-          {/* Slider Container with relative position */}
-          <div className="relative">
+          {/* Slider Container with touch events */}
+          <div 
+            className="relative"
+            ref={sliderRef}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             <div className="overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
@@ -77,6 +121,7 @@ export default function Testimonial() {
                 ))}
               </div>
             </div>
+            
             {/* Navigation Arrows */}
             <div
               onClick={prevSlide}
@@ -108,14 +153,20 @@ export default function Testimonial() {
               </svg>
             </div>
           </div>
+          
           {/* Navigation Dots */}
           <div className="flex justify-center mt-8">
             {testimonials.map((_, index) => (
               <div
                 key={index}
-                onClick={() => setCurrent(index)}
-                className={`h-2 w-2 rounded-full mx-1 cursor-pointer ${current === index ? "bg-[#043F9B]" : "bg-gray-300"
-                  }`}
+                onClick={() => {
+                  setIsInteracting(true);
+                  setCurrent(index);
+                  setTimeout(() => setIsInteracting(false), 1000);
+                }}
+                className={`h-2 w-2 rounded-full mx-1 cursor-pointer ${
+                  current === index ? "bg-[#043F9B]" : "bg-gray-300"
+                }`}
               />
             ))}
           </div>
@@ -129,7 +180,6 @@ export default function Testimonial() {
             className="max-h-96 absolute right-0 top-1/2 transform -translate-y-1/2"
           />
         </div>
-
       </div>
     </div>
   );

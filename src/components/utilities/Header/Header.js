@@ -26,8 +26,8 @@ const Header = () => {
       <div className="flex justify-between items-center">
         {isDrawerOpen && (
           <div
-            className="fixed inset-0 z-10 bg-gray-900 opacity-50 transition-opacity duration-300"
-            onClick={closeDrawer}
+          className="fixed inset-0 z-10 bg-gray-900 opacity-50 transition-opacity duration-300"
+          onClick={closeDrawer}
           />
         )}
       </div>

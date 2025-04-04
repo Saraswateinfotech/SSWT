@@ -8,7 +8,7 @@ export default function SuccessStories() {
     "Experience seamless ISKCON Puja booking with unified login/signup. Easily book pujas, track status, and access recordings via an intuitive dashboard.";
 
   return (
-    <section className="bg-[#002ea8] text-white py-4 lg:py-16">
+    <section id="home-portfolio" className="bg-[#002ea8] text-white py-4 lg:py-16">
       <div className="max-w-screen-2xl mx-auto px-4 lg:px-16">
         {/* Title Section */}
         <div className="mb-10 ml-2">
