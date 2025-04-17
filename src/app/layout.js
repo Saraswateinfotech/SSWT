@@ -1,6 +1,4 @@
 import "./globals.css";
-import Header from "@/components/utilities/Header/Header";
-import FooterPage from "@/components/utilities/Footer/FooterPage";
 import { Outfit } from "next/font/google";
 
 const companyText = Outfit({
@@ -16,12 +14,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${companyText.className} antialiased bg-white`}
-      >
-        <Header />
+      <body className={`${companyText.className} antialiased bg-white`}>
         {children}
-        <FooterPage />
         {/* <SocialMediaSticky /> */}
       </body>
     </html>
