@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="bg-[#0A0A0A] text-gray-300 pt-10">
       <div className="lg:max-w-screen-2xl mx-auto px-4 sm:px-16">
         <div>
-          <img src="sswt-dark.png" className="h-16 mb-10" />
+          <img src="sswt-logo.png" className="h-12 mb-10" />
         </div>
         {/* Flex container */}
         <div className="flex flex-wrap max-w-2xl lg:max-w-full m-auto justify-between sm:gap-y-8">

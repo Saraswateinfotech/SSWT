@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "imageUrl": "/portfolio/iskconpujalap.png",
+    "title": "ISKCON Puja",
+    "description": "Experience seamless ISKCON Puja booking with unified login/signup. Easily book pujas, track status, and access recordings via an intuitive dashboard.",
+    "link": "https://iskconpuja.com"
+  },
+  {
+    "id": 2,
+    "imageUrl": "/portfolio/resumesentrylap.png",
+    "title": "Resumes Entry",
+    "description": "Resumes Entry provides separate dashboards: admins manage resumes, and freelancers work on assignments. It offers KYC and secure data collection.",
+    "link": "https://resumesentry.com"
+  },
+  {
+    "id": 3,
+    "imageUrl": "/portfolio/iskconjprtab.png",
+    "title": "ISKCON Jaipur",
+    "description": "Developed by our team, this website showcases the campus and projects, featuring temple events, community initiatives, and spiritual activities.",
+    "link": "https://iskconjaipur.com"
+  },
+  {
+    "id": 4,
+    "imageUrl": "/portfolio/tlipbarled.png",
+    "title": "The Lip Bar",
+    "description": "Developed by our team, this ecommerce landing page combines product showcase and secure checkout with an integrated payment gateway.",
+    "link": "https://thelipbar.com"
+  },
+  {
+    "id": 5,
+    "imageUrl": "/portfolio/bossaudiotab.png",
+    "title": "Boss Audio System",
+    "description": "Our ecommerce landing page showcases Boss Audio’s innovative products with a secure, streamlined shopping experience that drives conversions.",
+    "link": "https://bossaudio.com"
+  }
+]

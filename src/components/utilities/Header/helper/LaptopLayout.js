@@ -59,7 +59,7 @@ const LaptopLayout = ({ toggleDrawer }) => {
           <Link href="#home" onClick={(e) => handleSmoothScroll(e, "#home")}>
             <img
               src="/sswt-logo.png"
-              className="h-12 sm:h-16 absolute -top-1 sm:-top-3 lg:left-auto left-2"
+              className="h-6 sm:h-10 sm:top-0 top-1 absolute lg:left-auto left-2"
             />
           </Link>
         </div>
