@@ -1,10 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import QuoteForm from "./QuoteForm";
 
-const LaptopLayout = ({ toggleDrawer }) => {
-  const [isQuoteFormOpen, setIsQuoteFormOpen] = useState(false);
+const LaptopLayout = ({ toggleDrawer, setIsQuoteFormOpen }) => {
   const [activeSection, setActiveSection] = useState("");
 
   const navigationItems = [
@@ -83,7 +81,10 @@ const LaptopLayout = ({ toggleDrawer }) => {
 
           <div className="flex items-center space-x-2 lg:space-x-4">
             <button
-              onClick={() => setIsQuoteFormOpen(true)}
+              onClick={() => {
+                console.log("Opening quote form from LaptopLayout");
+                setIsQuoteFormOpen(true);
+              }}
               className="hover:no-underline bg-[#1e3b96] text-[#EBF5FB] hover:text-[#1e3b96] hover:bg-transparent hover:border-2 hover:border-[#1e3b96] font-medium rounded-full text-sm px-6 hover:px-[22px] py-2 hover:py-[6px] text-center transition-all duration-500"
             >
               Get a Quote
@@ -94,7 +95,7 @@ const LaptopLayout = ({ toggleDrawer }) => {
               onClick={toggleDrawer}
             >
               <svg
-                className={`w-7 h-7 text-[#2C3E50]`}
+                className="w-7 h-7 text-[#2C3E50]"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
@@ -106,20 +107,6 @@ const LaptopLayout = ({ toggleDrawer }) => {
           </div>
         </div>
       </div>
-
-      {isQuoteFormOpen && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg relative w-full max-w-md mx-auto">
-            <button
-              onClick={() => setIsQuoteFormOpen(false)}
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-            >
-              &times;
-            </button>
-            <QuoteForm onClose={() => setIsQuoteFormOpen(false)} />
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -3,11 +3,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const TabLayout = ({ closeDrawer }) => {
+const TabLayout = ({ closeDrawer, setIsQuoteFormOpen }) => {
   const [activeId, setActiveId] = useState("home");
   const pathname = usePathname();
 
-  // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
       const sections = [
@@ -19,7 +18,6 @@ const TabLayout = ({ closeDrawer }) => {
         "home-contact",
       ];
 
-      // Find the section that is currently in view
       const currentSection = sections.find((sectionId) => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -38,7 +36,6 @@ const TabLayout = ({ closeDrawer }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Get link class based on active state
   const getLinkClassName = (id) => {
     return `font-semibold text-xl no-underline ${
       activeId === id ? "text-[#1a3c93]" : "text-[#6a6e72]"
@@ -50,7 +47,7 @@ const TabLayout = ({ closeDrawer }) => {
     { id: "home-about", label: "About Us", path: "#home-about" },
     { id: "home-services", label: "Services", path: "#home-services" },
     { id: "home-portfolio", label: "Portfolio", path: "#home-portfolio" },
-    { id: "home-industries", label: "Testimonials", path: "#home-testimonials" },
+    { id: "home-testimonials", label: "Testimonials", path: "#home-testimonials" },
     { id: "home-contact", label: "Contact Us", path: "#home-contact" },
   ];
 
@@ -76,6 +73,10 @@ const TabLayout = ({ closeDrawer }) => {
           <button
             type="button"
             className="text-white hover:no-underline hover:text-white bg-[#043F9B] hover:bg-transparent hover:border-2 hover:border-[#ff806b] font-medium rounded-full text-sm px-6 py-2 text-center transition-all duration-500 w-full"
+            onClick={() => {
+              console.log("Opening quote form");
+              setIsQuoteFormOpen(true);
+            }}
           >
             Get a Quote
           </button>
@@ -87,7 +88,10 @@ const TabLayout = ({ closeDrawer }) => {
               <Link
                 href={item.path}
                 className={getLinkClassName(item.id)}
-                onClick={() => setActiveId(item.id)}
+                onClick={() => {
+                  setActiveId(item.id);
+                  closeDrawer();
+                }}
               >
                 {item.label}
               </Link>
