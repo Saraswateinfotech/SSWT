@@ -91,7 +91,11 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-8 border-t border-gray-700 p-6 flex flex-col min-[450px]:flex-row items-center justify-center gap-8">
           <p className="text-base text-center">© 2025 Saraswate. All Rights Reserved.</p>
-          <p className="text-base text-center">🇮🇳 <span className="mx-1">Make in Bhart</span> 🇮🇳</p>
+          <p className="text-base text-center">
+            <img src="/india.svg" alt="India flag" className="inline h-4 w-4 mr-1" />
+            <span className="mx-1">Make in Bhart</span>
+            <img src="/india.svg" alt="India flag" className="inline h-4 w-4 ml-1" />
+          </p>
         </div>
       </div>
     </footer>

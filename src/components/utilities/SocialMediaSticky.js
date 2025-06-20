@@ -29,7 +29,7 @@ const SocialMediaSticky = () => {
             whileHover={{ scale: 1.1 }}
           />
         </Link>
-        <Link href="https://wa.me/9649689649" target="_blank">
+        <Link href="https://wa.me/+919649689649" target="_blank">
           <motion.img
             src="/Home/Hero/social_media_icons/whatsapp.svg"
             alt="WhatsApp"

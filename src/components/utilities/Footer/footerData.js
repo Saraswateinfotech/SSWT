@@ -15,12 +15,12 @@ export const footerData = {
       {
         name: "LinkedIn",
         icon: <FaLinkedin className="h-8 w-8" />,
-        link: "https://www.linkedin.com",
+        link: "https://www.linkedin.com/company/saraswate",
       },
       {
         name: "WhatsApp",
         icon: <FaWhatsapp className="h-8 w-8" />,
-        link: "https://wa.me/9950488637",
+        link: "https://wa.me/+919950488637",
       },
     ],
   },
