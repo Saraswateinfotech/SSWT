@@ -50,7 +50,7 @@ export const footerData = {
     ],
   },
   pages: {
-    heading: "Pages",
+    heading: "Resources",
     links: [
       { text: "Home", link: "#home" },
       { text: "About", link: "#home-about" },
