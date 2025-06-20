@@ -44,7 +44,7 @@ export default function NoShippingPolicy() {
               We offer services through:
             </p>
             <ul className="list-disc list-inside text-gray-600 pl-4">
-              <li>Email: saraswateinfotech@gmail.com</li>
+              <li>Email: contact@saraswate.com</li>
               <li>Phone: +91 95889 43248</li>
               <li>Online platforms</li>
             </ul>

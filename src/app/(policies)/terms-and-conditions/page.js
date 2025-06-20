@@ -173,7 +173,7 @@ export default function TermsAndConditions() {
               Saraswate
             </h3>
             <p className="text-gray-600">
-              <strong>Email:</strong> saraswateinfotech@gmail.com
+              <strong>Email:</strong> contact@saraswate.com
             </p>
             <p className="text-gray-600">
               <strong>Phone:</strong> +91 95889 43248
