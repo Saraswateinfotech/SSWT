@@ -29,7 +29,7 @@ export const jobDetails = [
       "Strong understanding of Node.js / Django / Spring Boot",
       "Experience working with databases like PostgreSQL or MongoDB"
     ],
-    experience: "2-4 years",
+    experience: "4-7 years",
     employment: "Full-time",
     qualification: "B.E. / MCA / B.Sc. IT",
     location: "Pune, India",
@@ -47,7 +47,7 @@ export const jobDetails = [
       "Experience with MySQL, PostgreSQL or Oracle",
       "Knowledge of data modeling and security"
     ],
-    experience: "3-5 years",
+    experience: "8-10 years",
     employment: "Full-time",
     qualification: "B.Sc. / BCA / DBA Certification",
     location: "Hyderabad, India",

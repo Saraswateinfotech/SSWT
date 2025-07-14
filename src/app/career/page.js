@@ -7,7 +7,7 @@ import JobSection from "@/components/Career/JobSection/JobSection";
 const CareerPage = () => {
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center backdrop-blur-lg bg-white/5">
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center backdrop-blur-lg">
         <div className="w-full max-w-screen-xl">
           <nav className="flex items-center py-4">
             <img src="/sswt-logo.png" alt="SSWT Logo" className="h-14" />

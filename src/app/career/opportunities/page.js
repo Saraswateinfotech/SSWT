@@ -4,34 +4,62 @@ import { Search, MapPin, Briefcase, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { jobDetails } from "./jobData";
 
+// Helper function to parse experience string into min/max
+const parseExperience = (exp) => {
+  if (exp.includes("+")) {
+    const min = parseInt(exp, 10);
+    return { min, max: Infinity };
+  }
+  const [min, max] = exp.split("-").map((s) => parseInt(s.trim(), 10));
+  return { min, max };
+};
+
 const JobSearchComponent = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedExp, setSelectedExp] = useState([]);
 
-  // build list of unique experiences with counts
+  // Define fixed experience ranges
+  const experienceRanges = [
+    { range: "0-2 years", min: 0, max: 2 },
+    { range: "3-5 years", min: 3, max: 5 },
+    { range: "5+ years", min: 6, max: Infinity },
+  ];
+
+  // Build counts for each experience range
   const experiences = useMemo(() => {
-    const counts = {};
-    jobDetails.forEach((j) => {
-      counts[j.experience] = (counts[j.experience] || 0) + 1;
+    return experienceRanges.map(({ range, min: filterMin, max: filterMax }) => {
+      const count = jobDetails.reduce((acc, job) => {
+        const { min: jobMin, max: jobMax } = parseExperience(job.experience);
+        // Check if job range intersects with filter range
+        const intersects = jobMin <= filterMax && jobMax >= filterMin;
+        return acc + (intersects ? 1 : 0);
+      }, 0);
+      return { range, count };
     });
-    return Object.entries(counts).map(([exp, count]) => ({ exp, count }));
   }, []);
 
-  // filter logic
+  // Filter logic
   const filteredJobs = useMemo(() => {
     return jobDetails.filter((job) => {
       const matchesSearch =
         job.role.toLowerCase().includes(searchQuery.toLowerCase()) ||
         job.jobSummary.toLowerCase().includes(searchQuery.toLowerCase());
+      const { min: jobMin, max: jobMax } = parseExperience(job.experience);
       const matchesExp =
-        selectedExp.length === 0 || selectedExp.includes(job.experience);
+        selectedExp.length === 0 ||
+        selectedExp.some((expRange) => {
+          const { min: filterMin, max: filterMax } = experienceRanges.find(
+            (r) => r.range === expRange
+          );
+          return jobMin <= filterMax && jobMax >= filterMin;
+        });
       return matchesSearch && matchesExp;
     });
   }, [searchQuery, selectedExp]);
 
-  const toggleExp = (exp) => {
+  const toggleExp = (range) => {
     setSelectedExp((prev) =>
-      prev.includes(exp) ? prev.filter((e) => e !== exp) : [...prev, exp]
+      prev.includes(range) ? prev.filter((e) => e !== range) : [...prev, range]
     );
   };
 
@@ -79,19 +107,19 @@ const JobSearchComponent = () => {
                 FILTER BY EXPERIENCE
               </h3>
               <div className="space-y-3">
-                {experiences.map(({ exp, count }) => (
+                {experiences.map(({ range, count }) => (
                   <label
-                    key={exp}
+                    key={range}
                     className="flex items-center justify-between cursor-pointer"
                   >
                     <div className="flex items-center">
                       <input
                         type="checkbox"
-                        checked={selectedExp.includes(exp)}
-                        onChange={() => toggleExp(exp)}
+                        checked={selectedExp.includes(range)}
+                        onChange={() => toggleExp(range)}
                         className="rounded text-blue-500 mr-3 focus:ring-blue-500"
                       />
-                      <span className="text-slate-600">{exp}</span>
+                      <span className="text-slate-600">{range}</span>
                     </div>
                     <span className="text-slate-400 text-sm">{count}</span>
                   </label>
